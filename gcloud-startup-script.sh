@@ -3,6 +3,13 @@
 # Documentation: https://cloud.google.com/compute/docs/startupscript?hl=en_US
 
 # This script is run as root after boot.
+# The script is added as "Startup script" in the Google Cloud console. 
+# The initialization of a system works as follows:
+# - the system is updated, git installed
+# - the setup-scripts project is cloned from github
+# - the run_as_root script is executed as root
+# - the run_as_user script is executed as user
+
 
 # Username
 USER=ase16
