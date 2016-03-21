@@ -1,7 +1,7 @@
 # setup-scripts
 Scripts that initialize virtual machines and set up a running node.
 
-## Files
+## Scripts
 **gcloud-startup-script.sh:** This script is added to the instance template. As a consequence, it is executed after boot as soon as the machine is available. 
 See [Compute Documentation]( https://cloud.google.com/compute/docs/startupscript?hl=en_US ) for more information. 
 The script clones this repositroy and executes the scripts `run_as_root.sh` and `run_as_user scripts.sh`.
