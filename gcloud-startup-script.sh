@@ -16,11 +16,12 @@ USER=ase16
 # home directory of user
 USER_HOME="$(eval echo ~"$USER")"
 # directory for the scripts in the home dir
-SCRIPTS_DIR="$USER_HOME/setup-scripts"
+SETUP_SCRIPTS="$USER_HOME/setup-scripts"
+export SETUP_SCRIPTS
 
 echo "User: $USER" 
 echo "User home: $USER_HOME"
-echo "Scripts dir: $SCRIPTS_DIR"
+echo "Setup scripts: $SETUP_SCRIPTS"
 echo "================"
 
 echo "Update system..."
@@ -28,16 +29,17 @@ apt-get update -y
 apt-get upgrade -y
 
 echo "Install git..."
-apt-get install -y git
+#apt-get install -y git
 
 function cloneScriptsDir() {
-    # go to home dir of user
+    # go to home dir
     cd ~/
     
     # remove scripts folder if it already exists.
-    if [ -d "$SCRIPTS_DIR" ]; then
-        echo "Remove scripts folder."
-        rm -rf $SCRIPTS_DIR
+    if [ -d "$SETUP_SCRIPTS" ]
+    then
+        echo "Remove scripts folder..."
+        rm -rf $SETUP_SCRIPTS
     fi
     
     # clone fresh copy from github
@@ -51,11 +53,11 @@ export -f cloneScriptsDir
 
 # run the root script
 echo "Execute run_as_root"
-cd $SCRIPTS_DIR && ./run_as_root.sh > run_as_root.log
+cd $SETUP_SCRIPTS && ./run_as_root.sh > run_as_root.log 2>&1
 
 # run the user script
 echo "Execute run_as_user"
-/bin/su - $USER -c "cd $SCRIPTS_DIR && ./run_as_user.sh > run_as_user.log"
+/bin/su - $USER -c "cd $SETUP_SCRIPTS && ./run_as_user.sh > run_as_user.log 2>&1"
 
 exit 0
 
