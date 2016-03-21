@@ -1,11 +1,20 @@
-#! /bin/bash
+#!/bin/bash
 
 # Documentation: https://cloud.google.com/compute/docs/startupscript?hl=en_US
 
 # This script is run as root after boot.
 
+# Username
+USER=ase16
+# home directory of user
+USER_HOME="$(eval echo ~"$USER")"
+# directory for the scripts in the home dir
+SCRIPTS_DIR="$USER_HOME/setup-scripts"
 
-$SCRIPTS_DIR = "setup-scripts"
+echo "User: $USER" 
+echo "User home: $USER_HOME"
+echo "Scripts dir: $SCRIPTS_DIR"
+echo "================"
 
 echo "Update system..."
 apt-get update -y
@@ -25,14 +34,22 @@ function cloneScriptsDir() {
     fi
     
     # clone fresh copy from github
+    echo "clone setup-scripts from github"
     git clone https://github.com/ase16/setup-scripts.git
 }
 
 export -f cloneScriptsDir
 # run clone function (as other user)
-/bin/su ase16 -c "bash -c cloneScriptsDir"
-# run hello script (as other user)
-/bin/su - ase16 -c "./setup-scripts/hello.sh"
+/bin/su $USER -c "bash -c cloneScriptsDir"
+
+# run the root script
+echo "Execute run_as_root"
+cd $SCRIPTS_DIR && ./run_as_root.sh > run_as_root.log
+
+# run the user script
+echo "Execute run_as_user"
+/bin/su - $USER -c "cd $SCRIPTS_DIR && ./run_as_user.sh > run_as_user.log"
+
 exit 0
 
 
