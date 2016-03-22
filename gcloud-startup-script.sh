@@ -29,7 +29,7 @@ apt-get update -y
 apt-get upgrade -y
 
 echo "Install git..."
-#apt-get install -y git
+apt-get install -y git
 
 function cloneScriptsDir() {
     # go to home dir
