@@ -22,7 +22,7 @@ export SETUP_SCRIPTS
 echo "User: $USER" 
 echo "User home: $USER_HOME"
 echo "Setup scripts: $SETUP_SCRIPTS"
-echo "================"
+echo "======================================================"
 
 echo "Update system..."
 apt-get update -y
@@ -60,5 +60,3 @@ echo "Execute run_as_user"
 /bin/su - $USER -c "cd $SETUP_SCRIPTS && ./run_as_user.sh > run_as_user.log 2>&1"
 
 exit 0
-
-
