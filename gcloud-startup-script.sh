@@ -26,7 +26,7 @@ echo "======================================================"
 
 echo "Update system..."
 apt-get update -y
-apt-get upgrade -y
+#apt-get upgrade -y
 
 echo "Install git..."
 apt-get install -y git
