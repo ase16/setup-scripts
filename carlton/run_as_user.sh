@@ -15,6 +15,9 @@ npm install
 echo "Carlton: Fetch credentials from google cloud (metadata)."
 curl "http://metadata.google.internal/computeMetadata/v1/project/attributes/carlton-config-production" -H "Metadata-Flavor: Google" > config/production.json
 
+echo "Carlton: Fetch stormpath env file from google cloud (metadata)."
+curl "http://metadata.google.internal/computeMetadata/v1/project/attributes/env-stormpath" -H "Metadata-Flavor: Google" > .evn.stormpath.json
+
 echo "Carlton: Start node server in the background."
 export NODE_ENV=production
 nohup node app.js > carlton.log &

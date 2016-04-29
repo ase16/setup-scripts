@@ -13,4 +13,8 @@ Note: the `setup-scripts` repository is cloned each time the machine boots. This
 
 **run_as_user.sh:** The commands in this script are executed as regular user. E.g. cloning other repositories, running software.
 
+## Important Reminder
+Do **NOT** forget to set permission bits for your scripts, else they won't be executable by google's vms.
+
+`git update-index --chmod=+x script.sh`
 
