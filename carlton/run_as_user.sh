@@ -16,7 +16,7 @@ echo "Carlton: Fetch credentials from google cloud (metadata)."
 curl "http://metadata.google.internal/computeMetadata/v1/project/attributes/carlton-config-production" -H "Metadata-Flavor: Google" > config/production.json
 
 echo "Carlton: Fetch stormpath env file from google cloud (metadata)."
-curl "http://metadata.google.internal/computeMetadata/v1/project/attributes/env-stormpath" -H "Metadata-Flavor: Google" > .evn.stormpath
+curl "http://metadata.google.internal/computeMetadata/v1/project/attributes/env-stormpath" -H "Metadata-Flavor: Google" > .env.stormpath
 
 echo "Carlton: Start node server in the background."
 export NODE_ENV=production
