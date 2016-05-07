@@ -17,4 +17,4 @@ curl "http://metadata.google.internal/computeMetadata/v1/project/attributes/jazz
 
 echo "Jazz: Start node server in the background."
 export NODE_ENV=production
-nohup node app.js > jazz.log &
+nohup node app.js > jazz.log 2>&1
