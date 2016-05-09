@@ -53,7 +53,7 @@ export -f cloneScriptsDir
 
 # run the root script
 echo "Will: Execute run_as_root"
-cd $SETUP_SCRIPTS && cd "will" ./run_as_root.sh > run_as_root.log 2>&1
+cd $SETUP_SCRIPTS && cd "will" && ./run_as_root.sh > run_as_root.log 2>&1
 
 # run the user script
 echo "Will: Execute run_as_user"
