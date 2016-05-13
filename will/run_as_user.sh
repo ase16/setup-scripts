@@ -17,4 +17,4 @@ curl "http://metadata.google.internal/computeMetadata/v1/project/attributes/will
 
 echo "Will: Start node server in the background."
 export NODE_ENV=production
-nohup node app.js > will.log 2>&1
+nohup node app.js > will.log 2>&1 &
