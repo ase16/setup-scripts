@@ -20,4 +20,4 @@ curl "http://metadata.google.internal/computeMetadata/v1/project/attributes/env-
 
 echo "Carlton: Start node server in the background."
 export NODE_ENV=production
-nohup node app.js > carlton.log &
+nohup node app.js > carlton.log 2>&1 &
