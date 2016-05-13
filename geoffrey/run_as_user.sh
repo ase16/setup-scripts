@@ -26,4 +26,4 @@ curl "http://metadata.google.internal/computeMetadata/v1/project/attributes/env-
 
 echo "Geoffrey: Start node server in the background."
 export NODE_ENV=production
-nohup node app.js > geoffrey.log &
+nohup node app.js > geoffrey.log 2>&1 &
