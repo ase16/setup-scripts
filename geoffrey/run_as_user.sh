@@ -16,7 +16,7 @@ echo "Geoffrey: Fetch credentials from google cloud (metadata)."
 curl "http://metadata.google.internal/computeMetadata/v1/project/attributes/geoffrey-config-production" -H "Metadata-Flavor: Google" > config/production.json
 
 echo "Geoffrey: Fetch credentials from google cloud (metadata)."
-curl "http://metadata.google.internal/computeMetadata/v1/project/attributes/ASE16-json" -H "Metadata-Flavor: Google" > config/ASE16-cd70a773b84a.json.json
+curl "http://metadata.google.internal/computeMetadata/v1/project/attributes/ASE16-json" -H "Metadata-Flavor: Google" > config/ASE16-cd70a773b84a.json
 
 echo "Geoffrey: Fetch stormpath env file from google cloud (metadata)."
 curl "http://metadata.google.internal/computeMetadata/v1/project/attributes/env-gce" -H "Metadata-Flavor: Google" > .env.gce
