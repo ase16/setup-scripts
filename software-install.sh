@@ -15,3 +15,6 @@ apt-get install -y build-essential
 echo "Install: current nodejs..."
 curl -sL https://deb.nodesource.com/setup_5.x | bash -
 apt-get install -y nodejs
+
+echo "Shutdown..."
+shutdown -P 1
